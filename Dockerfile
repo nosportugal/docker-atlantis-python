@@ -1,0 +1,1 @@
+FROM ghcr.io/abalcobia/atlantispy:v5
