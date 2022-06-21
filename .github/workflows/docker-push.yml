@@ -1,11 +1,8 @@
 name: Create and publish a Docker image
 
 on:
-  push:
-    branches:
-      - 'main'
-    tags:
-      - 'v*'
+  release:
+    types: [published, created]
 
 env:
   REGISTRY: ghcr.io
@@ -14,6 +11,7 @@ env:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
+    if: ( github.event.release.target_commitish == 'main' )
     permissions:
       contents: read
       packages: write
