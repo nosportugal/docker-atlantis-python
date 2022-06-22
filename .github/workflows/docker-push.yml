@@ -1,4 +1,4 @@
-name: Create and publish a Docker image
+name: Docker Image to Registry
 
 on:
   push:
@@ -6,7 +6,9 @@ on:
       - 'main'
     tags:
       - 'v*'
-
+  pull_request:
+    branches:
+      - 'main'
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
@@ -37,13 +39,15 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           images: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=raw,value=latest,enable={{is_default_branch}}
+          flavor: |
+            latest=auto
+            prefix=
+            suffix=
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.0.0
         with:
           context: .
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
