@@ -38,8 +38,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           images: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=ref,event=branch, enable=true
+          flavor: |
+            latest=auto
+            prefix=
+            suffix=
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.0.0
