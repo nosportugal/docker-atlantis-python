@@ -13,7 +13,6 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
-
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
@@ -42,7 +41,7 @@ jobs:
           flavor: |
             latest=auto
             prefix=
-            suffix=
+            suffix={{base_ref}}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.0.0
