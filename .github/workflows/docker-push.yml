@@ -39,9 +39,11 @@ jobs:
           images: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           flavor: |
-            latest=auto
+            latest=false
             prefix=
-            suffix={{base_ref}}
+            suffix=
+          tags: |
+            type=raw, enable=true,value=latest
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.0.0
