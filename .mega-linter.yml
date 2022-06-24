@@ -1,0 +1,20 @@
+# Configuration file for Mega-Linter
+# See all available variables at https://nvuillam.github.io/mega-linter/configuration/ and in linters documentation
+
+APPLY_FIXES: none
+DEFAULT_BRANCH: main # Usually master or main
+# ENABLE: # If you use ENABLE variable, all other languages/formats/tooling-formats will be disabled by default
+# ENABLE_LINTERS: # If you use ENABLE_LINTERS variable, all other linters will be disabled by default
+ENABLE_LINTERS:
+  - MARKDOWN_MARKDOWNLINT
+  - EDITORCONFIG_EDITORCONFIG_CHECKER
+  - CREDENTIALS_SECRETLINT
+  - KUBERNETES_KUBEVAL
+  - GIT_GIT_DIFF
+  - DOCKERFILE_DOCKERFILELINT
+SHOW_ELAPSED_TIME: false
+FILEIO_REPORTER: false
+IGNORE_GITIGNORED_FILES: true # If set to true, Mega-Linter will skip files ignored by git using .gitignore file
+KUBERNETES_DIRECTORY: k8s
+KUBERNETES_KUBEVAL_ARGUMENTS: "--schema-location https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/ --ignore-missing-schemas"
+MARKDOWN_MARKDOWNLINT_CONFIG_FILE: LINTER_DEFAULT

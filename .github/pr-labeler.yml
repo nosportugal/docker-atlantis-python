@@ -1,0 +1,18 @@
+#! more info here: https://github.com/actions/labeler
+documentation:
+- "**/*.md"
+
+k8s:
+- k8s/**/*
+- k8s/**/*
+- modules/**/k8s/**/*
+
+workflows:
+- .github/**/*
+- CODEOWNERS
+- .*.*
+
+# you can also define other labels
+#
+# gke:
+# - argus.tf
