@@ -4,8 +4,6 @@ on:
   push:
     tags:
       - 'v*'
-    branches: [main]
-
 
 env:
   REGISTRY: ghcr.io
@@ -29,8 +27,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata (tags, labels) for Docker
+      - name: Tags for Beta
+        id: beta
+        if:  ${{ github.ref == 'refs/heads/beta' }}
+        uses: docker/metadata-action@v4.0.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          images: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=beta
+          flavor: |
+            latest=false
+
+      - name: Tags for Main
         id: meta
+        if: ${{ github.ref == 'refs/heads/main' }}
         uses: docker/metadata-action@v4.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
