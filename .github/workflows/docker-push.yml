@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*'
+    branches: [main]
 
 
 env:
@@ -40,6 +41,8 @@ jobs:
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
+          flavor: |
+            latest=false
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.0.0
