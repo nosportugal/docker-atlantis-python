@@ -27,18 +27,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Tags for Beta
-        id: beta
-        uses: docker/metadata-action@v4.0.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          images: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=raw,value=beta
-          flavor: |
-            latest=false
-
       - name: Tags for Main
         id: meta
         uses: docker/metadata-action@v4.0.1
