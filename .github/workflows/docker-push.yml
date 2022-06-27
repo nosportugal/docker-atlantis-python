@@ -27,7 +27,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Tags for Main
+      - name: Extract Tags & Labels
         id: meta
         uses: docker/metadata-action@v4.0.1
         with:
