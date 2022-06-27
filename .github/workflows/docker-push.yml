@@ -29,7 +29,6 @@ jobs:
 
       - name: Tags for Beta
         id: beta
-        if:  ${{ github.ref == 'refs/heads/beta' }}
         uses: docker/metadata-action@v4.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -42,7 +41,6 @@ jobs:
 
       - name: Tags for Main
         id: meta
-        if: ${{ github.ref == 'refs/heads/main' }}
         uses: docker/metadata-action@v4.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
