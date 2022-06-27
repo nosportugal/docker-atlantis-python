@@ -1,0 +1,11 @@
+#! more info here: https://github.com/actions/labeler
+name: Pull Request labeler
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  pr-labels:
+    uses: nosportugal/github-workflows-ccoe/.github/workflows/pr-labeler.yml@main
+    with:
+      configuration-path: .github/pr-labeler.yml

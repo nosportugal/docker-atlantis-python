@@ -1,0 +1,5 @@
+#! more info here: https://github.com/github/issue-labeler
+# Comments do not trigger this and empty-bodied issues will also fail this action
+# Add/remove 'urgent' label if issue contains the words 'urgent' or 'critical'
+urgent:
+    - '([Cc]ritical|[Uu]rgent)'
