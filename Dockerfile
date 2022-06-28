@@ -1,3 +1,2 @@
-FROM ghcr.io/abalcobia/atlantispy:v5
-LABEL org.opencontainers.image.description=TESTE
-
+FROM ghcr.io/runatlantis/atlantis:v0.19.5
+RUN apk add python3 --no-cache
