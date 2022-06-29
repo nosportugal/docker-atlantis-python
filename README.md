@@ -1,4 +1,4 @@
-# Alantis with Python
+# Atlantis with Python
 
 Original Base Image of Atlantis that uses Python Libraries.
 
