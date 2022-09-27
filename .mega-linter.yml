@@ -11,7 +11,7 @@ ENABLE_LINTERS:
   - CREDENTIALS_SECRETLINT
   - KUBERNETES_KUBEVAL
   - GIT_GIT_DIFF
-  - DOCKERFILE_DOCKERFILELINT
+  - DOCKERFILE_HADOLINT
 SHOW_ELAPSED_TIME: false
 FILEIO_REPORTER: false
 IGNORE_GITIGNORED_FILES: true # If set to true, Mega-Linter will skip files ignored by git using .gitignore file
