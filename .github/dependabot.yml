@@ -19,3 +19,6 @@ updates:
       interval: "daily"
     assignees:
       - "abalcobia"
+      - "fgmachado-ritain"
+    reviewers:
+      - "nosportugal/ccoe-aws-terraform"
