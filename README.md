@@ -1,4 +1,4 @@
-# Atlantis with Python
+# Atlantis with Python and REGO Policies
 
 Original Base Image of Atlantis that uses Python Libraries and a REGO policy to block unwanted terraform providers.
 
@@ -80,7 +80,7 @@ In parallel, we also recognized the importance of Atlantis provider blacklisting
 
 In the end, if a blacklisted provider is identified, we get the following PR in the comment:
 
-![BlacklistProviders](image-2.png)
+![image](https://github.com/nosportugal/docker-atlantis-python/assets/98830742/c1b22503-8c01-40b7-a539-a03958cc6207)
 
 ⚠ To implement provider blacklisting within the Atlantis image, we introduced a dynamic solution. By utilizing Atlantis `custom_environment_variables` input as "BLACKLIST_PROVIDERS", we can now specify one or more blacklisted providers as values. For example, we might set the value as follows: 
  - "registry.terraform.io/hashicorp/external,registry.terraform.io/hashicorp/null,registry.terraform.io/hashicorp/xxx,..."
