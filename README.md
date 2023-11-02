@@ -6,7 +6,9 @@ Original Base Image of Atlantis that uses Python Libraries and a REGO policy to 
 
 Upon using lambda functions in a repository, using the base image of Atlantis would run into errors since these functions use python. Therefore, this project was designed to get the latest image from Atlantis and adding python to the image in order to run these specific cases.
 
-In parallel, we also recognized the importance of Atlantis provider blacklisting to prevent unintended execution of Terraform plans, and avoid exposing sensitive information. Given the diversity of providers used across the projects, we opted for a blacklist approach to this solution, ensuring that only approved providers could be utilized. This approach involved a three-step process:
+As already described in the documentation, https://github.com/runatlantis/atlantis/blob/v0.17.5/runatlantis.io/docs/security.md#protect-terraform-planning, protecting terraform apply from malicious code is not enough. It's possible to inject arbitrary code at plan phase using the external data source or a malicious provider, so we also recognized the importance of Atlantis provider blacklisting to prevent unintended execution of Terraform plans and avoid exposing sensitive information, through a security check mechanism before plan.
+
+Given the diversity of providers used across the projects, we opted for a blacklist approach to this solution, ensuring that only approved providers could be utilized. This approach involved a three-step process:
 
 1. Script for Terraform Provider Parsing: We developed a script that parses the results of the 'terraform providers' command, eliminates duplicates, and then systematically loops through a Conftest validation for each of these providers.
 
