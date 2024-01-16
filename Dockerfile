@@ -1,3 +1,5 @@
 FROM ghcr.io/runatlantis/atlantis:v0.27.0
-RUN apk add python3 --no-cache
+USER root
+RUN apk update && apk add python3 --no-cache && rm -rf /var/cache/apk/*
+USER atlantis
 COPY ./policies /policies
