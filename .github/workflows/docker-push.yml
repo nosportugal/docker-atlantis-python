@@ -41,7 +41,7 @@ jobs:
             latest=auto
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5.1.0
+        uses: docker/build-push-action@v5.2.0
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
